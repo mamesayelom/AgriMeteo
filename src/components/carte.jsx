@@ -3,7 +3,7 @@ function Carte({selectedRegion, setSelectedRegion}){
         setSelectedRegion(e.target.id);
     };
     const getFill = (regionId) => {
-        return selectedRegion === regionId ? "#e74c3c" : "#C0DD97";
+        return selectedRegion === regionId ? "#e74c3c" : "fill-green-500";
     };
 
 
