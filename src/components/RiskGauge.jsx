@@ -3,7 +3,7 @@ export  function RiskGauge({ risk, temp, humidity }) {
   const circumference = 2 * Math.PI * 30; // r=30
  
   return (
-    <div className={`rounded-2xl p-5 shadow-sm border ${risk.bg} ${risk.border}`}>
+    <div className={`rounded-2xl p-5 mt-5 shadow-sm border ${risk.bg} ${risk.border}`}>
       <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">
         Indice de risque climatique
       </p>
