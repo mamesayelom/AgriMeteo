@@ -1,109 +1,50 @@
 import { useEffect, useState } from "react";
 import LocationPopup from "../components/LocationPopup";
-
 import { motion, AnimatePresence } from "framer-motion";
 import Carte from "../components/carte"
 import Sidebar from "../components/Sidebar"
 import RegionPanel from "../components/RegionPanel"
+import { useGeolocation } from "../hooks/useGeolocation";
+import { isLocationAsked, setLocationAsked } from "../utils/storage";
 
 function Dashboard(){
     const [selectedRegion, setSelectedRegion] = useState(null);
     const [showLocationPopup,setShowLocationPopup] = useState(false);
+    //Créer region
+    //Créer getLocation
+    //Retourner les deux
+    const { region, getLocation } = useGeolocation();
+
+    useEffect(() => {
+    if (region) {
+      setSelectedRegion(region);
+    }
+    }, [region]);
 
     useEffect(()=>{
 
-    const alreadyAsked = localStorage.getItem("locationAsked");
-
-    if(!alreadyAsked){
+    if(!isLocationAsked()){
         setShowLocationPopup(true);
     }
 
     },[]);
 
-    //// Fonction asynchrone qui récupère la région à partir des coordonnées GPS (latitude, longitude)
-    async function getRegionFromCoordinates(lat, lon) {
 
-    // Appel API vers OpenStreetMap (Nominatim)
-    // On envoie la latitude et la longitude pour obtenir une adresse lisible
-    const res = await fetch(
-        `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`
-    );
-
-    // On transforme la réponse HTTP en JSON exploitable
-    const data = await res.json();
-
-    // On récupère la partie "address" du résultat
-    // Elle contient les infos comme pays, région, ville, etc.
-    const address = data.address;
-    console.log("adresse: ",address);
-    
-
-    // - address.state → retourne la région principale (ex: Dakar, Thiès)
-    // - address.county → retourne le pays
-    return address.state || address.county;
-    }
 
     // Fonction déclenchée quand l'utilisateur accepte ou autorise la localisation GPS
     const allowLocation = () => {
-
-        // (évite de redemander à chaque chargement de la page)
-        localStorage.setItem("locationAsked","true");
-
-        // On ferme le popup de demande de localisation
-        setShowLocationPopup(false);
-
-        // On demande la position GPS de l'utilisateur
-        navigator.geolocation.getCurrentPosition(
-
-           // CAS 1 : si l'utilisateur accepte et que la position est récupérée
-           async (pos)=>{
-
-                // On extrait la latitude et la longitude fournies par le navigateur
-                const {latitude, longitude} = pos.coords;
-
-
-                console.log(latitude, longitude);
-
-
-                // On convertit les coordonnées GPS en région (appel API reverse geocoding)
-                const region = await getRegionFromCoordinates(
-                    latitude,
-                    longitude
-                );
-
-                console.log(region)
-
-                // On stocke la région sélectionnée dans l'état React
-                setSelectedRegion(region);
-
-            },
-
-            // CAS 2 : si l'utilisateur refuse la localisation OU s'il y a une erreur
-            ()=>{
-
-                // On définit une région par défaut (Dakar)
-                setSelectedRegion("dakar");
-
-            }
-
-        );
-
-
+    setLocationAsked();
+    setShowLocationPopup(false);
+    getLocation();
     };
 
 
 
     const refuseLocation = () => {
-
-        localStorage.setItem("locationAsked","true");
-
-        setShowLocationPopup(false);
-
-
-        // région par défaut
-        setSelectedRegion("dakar");
-
-    };
+    setLocationAsked();
+    setShowLocationPopup(false);
+    setSelectedRegion("dakar");
+  };
 
     return(
         <>
