@@ -1,4 +1,5 @@
-function RiskGauge({ risk, temp, humidity }) {
+import { calculateRisk } from "./AlgoFonction";
+export  function RiskGauge({ risk, temp, humidity }) {
   const circumference = 2 * Math.PI * 30; // r=30
  
   return (
@@ -20,7 +21,7 @@ function RiskGauge({ risk, temp, humidity }) {
             style={{ transition: "stroke-dasharray .6s ease" }}
           />
           <text x="36" y="41" textAnchor="middle" fontSize="15" fontWeight="700" fill={risk.color}>
-            {risk.score}
+            {risk.score}%
           </text>
         </svg>
         <div>
@@ -31,21 +32,20 @@ function RiskGauge({ risk, temp, humidity }) {
         </div>
       </div>
  
-      <div className="bg-white/60 rounded-full h-2 overflow-hidden">
+      {/* <div className="bg-white/60 rounded-full h-2 overflow-hidden">
         <div
           className="h-full rounded-full transition-all duration-700"
           style={{ width: `${risk.score}%`, backgroundColor: risk.color }}
         />
-      </div>
-      <div className="flex justify-between text-[10px] text-gray-400 mt-1">
+      </div> */}
+      {/* <div className="flex justify-between text-[10px] text-gray-400 mt-1">
         <span>0 — Optimal</span>
         <span>100 — Critique</span>
-      </div>
-      <button className="mt-3 text-xs font-semibold underline underline-offset-2" style={{ color: risk.color }}>
+      </div> */}
+      {/* <button className="mt-3 text-xs font-semibold underline underline-offset-2" style={{ color: risk.color }}>
         Voir les détails →
-      </button>
+      </button> */}
     </div>
   );
 }
 
-export default RiskGauge

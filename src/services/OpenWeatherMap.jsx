@@ -16,7 +16,7 @@
   
     //await attend la réponse de fetch
    const reponse = await  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${region}&appid=${la_cle}&units=metric&lang=fr`)
-   console.log(reponse)
+   
      const data = await reponse.json()//convertir en format json
      
     
