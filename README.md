@@ -41,14 +41,54 @@ Visualisation graphique (Chart.js)
 
 Le projet intègre un modèle d’IA via OpenRouter permettant d’interpréter l’état du sol à partir des conditions climatiques.
 
-# Technologies
+# Choix technologiques
 
-React.js
-Tailwind CSS
-OpenWeatherMap API
-OpenRouter API
-Geolocation API
-Chart.js 
+* Frontend : React.js
+
+React a été choisi pour :
+
+La création d’une interface modulaire et réactive
+La gestion efficace des états (région sélectionnée, météo, IA)
+La construction de composants réutilisables (carte, dashboard, panneaux)
+
+* Styling : Tailwind CSS
+
+Tailwind permet :
+
+Un développement rapide de l’UI
+Une cohérence visuelle
+Une interface responsive adaptée mobile/desktop
+
+* API météo : OpenWeatherMap
+
+Utilisée pour :
+
+Récupérer les données météo en temps réel
+Température, humidité, conditions climatiques
+Mise à jour dynamique selon la région sélectionnée
+
+* Géolocalisation : Navigator Geolocation API
+
+Permet :
+
+Détection automatique de la position utilisateur
+Conversion latitude/longitude → région
+Fallback sur Dakar en cas de refus ou erreur
+
+* Intelligence artificielle : OpenRouter API
+
+Utilisée pour :
+
+L’interprétation de l’état du sol
+Génération de recommandations agricoles en langage naturel
+Analyse contextuelle basée sur météo (température + humidité)
+
+* Visualisation : Chart.js / Recharts
+
+Permet :
+
+Affichage de l’évolution climatique sur 7 jours simulés
+Lecture simple des tendances météo
 
 # Installation
 
