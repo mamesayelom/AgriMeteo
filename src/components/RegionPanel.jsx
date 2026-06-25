@@ -12,6 +12,7 @@ function RegionPanel({region}) {
 
 // on récupère tout depuis useMeteo
   const { donneesmeteo, charge, erreur } = ApiMeteo(region);
+  
 
 
    const weatherData = donneesmeteo && {
@@ -39,7 +40,19 @@ function RegionPanel({region}) {
 
   return (
     <div className="p-4 h-full overflow-y-auto">
-      <h1 className="text-2xl font-bold mb-5">{region}</h1>
+      {/* <h1 className="text-2xl font-bold mb-5">{region}</h1> */}
+      <div
+      className="relative rounded-2xl overflow-hidden mb-5 h-32 flex items-end p-5"
+      style={{
+        backgroundImage: "url('https://images.unsplash.com/photo-1516912481808-3406841bd33c?w=800')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+       <div className="absolute inset-0 bg-black/40" />
+      <h1 className="relative z-10 text-2xl font-bold text-white">{region}</h1>
+    </div>
+
      {donneesmeteo && (
       <>
       <WeatherCard data={weatherData}/>
