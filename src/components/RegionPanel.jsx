@@ -7,8 +7,9 @@ import {RiskGauge} from "./RiskGauge.jsx"
 import {calculateRisk} from "../utils/AlgoFonction.jsx"
 import { number } from "framer-motion";
 import { InterpretationIA } from "./IA";
+import { X } from "lucide-react";
 
-function RegionPanel({region}) {
+function RegionPanel({region, closePanel}) {
 
 // on récupère tout depuis useMeteo
   const { donneesmeteo, charge, erreur } = ApiMeteo(region);
@@ -36,19 +37,19 @@ function RegionPanel({region}) {
     : null;
 
   return (
-    <div className="p-4 h-full overflow-y-auto">
-      {/* <h1 className="text-2xl font-bold mb-5">{region}</h1> */}
+    <div className="relative p-4 h-full overflow-y-auto">
       <div
-      className="relative rounded-2xl overflow-hidden mb-5 h-32 flex items-end p-5"
-      style={{
-        backgroundImage: "url('https://images.unsplash.com/photo-1516912481808-3406841bd33c?w=800')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
-       <div className="absolute inset-0 bg-black/40" />
+        className="relative rounded-2xl overflow-hidden mb-5 h-32 flex items-end p-5"
+        style={{
+          backgroundImage: "url('https://images.unsplash.com/photo-1516912481808-3406841bd33c?w=800')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+      <span className="absolute top-5 right-5 cursor-pointer z-50" onClick={closePanel}><X color="white" /></span>
+      <div className="absolute inset-0 bg-black/40" />
       <h1 className="relative z-10 text-2xl font-bold text-white">{region}</h1>
-    </div>
+      </div>
 
      {donneesmeteo && (
       <>
