@@ -1,4 +1,3 @@
-import { calculateRisk } from "./AlgoFonction";
 export  function RiskGauge({ risk, temp, humidity, interpretation}) {
   const circumference = 2 * Math.PI * 30; // r=30
  

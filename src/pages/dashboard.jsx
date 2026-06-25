@@ -50,12 +50,16 @@ function Dashboard(){
         <>
         <div className="flex">
             <Sidebar/>
-            <div className="flex-1 bg-slate-50 w-full p-5 box-border">
-                <div className="flex justify-between items-center overflow-hidden box-border gap-2">
-                    <div className="flex items-center justify-center">
+            <div className="flex-1 bg-slate-50 w-full box-border">
+                <div className="p-5 bg-white mb-5">
+                    <h1 className="font-bold text-2xl" style={{color:"#2D5A16"}}>Carte Climatique Interactive</h1>
+                    <p className="text-slate-300 text-sm" style={{color:"#2D5A16"}}>Visualisez les conditions météorologiques en temps réel par région</p>
+                </div>
+                <div className="flex justify-center items-center overflow-hidden box-border gap-2">
+                    <div className="flex shadow-sm items-center justify-center">
                         <div className="card card-border bg-base-100 w-90">
                             <div className="card-body">
-                                <h2 className="card-title">Température nationale</h2>
+                                <h2 className="card-title" style={{color:"#2D5A16"}}>Température nationale</h2>
                                 <p>A card component has a figur</p>
                             </div>
                         </div>
@@ -64,16 +68,7 @@ function Dashboard(){
                     <div className="flex items-center justify-center">
                         <div className="card card-border bg-base-100 w-90">
                             <div className="card-body">
-                                <h2 className="card-title">Humidité moyenne</h2>
-                                <p>A card component has a figure</p>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div className="flex items-center justify-center">
-                        <div className="card card-border bg-base-100 w-90">
-                            <div className="card-body">
-                                <h2 className="card-title">Régions à risque</h2>
+                                <h2 className="card-title" style={{color:"#2D5A16"}}>Humidité moyenne</h2>
                                 <p>A card component has a figure</p>
                             </div>
                         </div>
