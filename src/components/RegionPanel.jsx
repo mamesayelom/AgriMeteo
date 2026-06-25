@@ -16,7 +16,6 @@ function RegionPanel({region}) {
 // on récupère tout depuis useMeteo
   const { donneesmeteo, charge, erreur } = ApiMeteo(region);
 
-
    const weatherData = donneesmeteo && {
     temp: donneesmeteo.main.temp,
     humidity: donneesmeteo.main.humidity,
@@ -37,8 +36,6 @@ function RegionPanel({region}) {
   if (erreur) {
     return <ErrorState/>
   }
-
-   
 
   return (
     <div className="p-4 h-full overflow-y-auto">
