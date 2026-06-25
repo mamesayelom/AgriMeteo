@@ -3,12 +3,9 @@ import WeatherCard from "./WeatherCard";
 import TemperatureChart from "./TemperatureChart";
 import LoadingState from "./LoadingState";
 import ErrorState from "./ErrorState";
-
 import {RiskGauge} from "./RiskGauge.jsx"
 import {calculateRisk} from "./AlgoFonction.jsx"
 import { number } from "framer-motion";
-
-
 import { InterpretationIA } from "./IA";
 
 function RegionPanel({region}) {
@@ -47,9 +44,9 @@ function RegionPanel({region}) {
         risk={risk}
         temp={weatherData.temp}
         humidity={weatherData.humidity}
+        interpretation={<InterpretationIA temp={weatherData.temp} humidity={weatherData.humidity} risk={risk} />} 
       />
-      <TemperatureChart currentTemp={weatherData.temp} />
-      <InterpretationIA temp={weatherData.temp} humidity={weatherData.humidity} risk={risk}  />
+      <TemperatureChart currentTemp={weatherData.temp}/>
       
       </>
       )}

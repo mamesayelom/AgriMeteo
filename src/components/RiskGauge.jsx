@@ -1,5 +1,5 @@
 import { calculateRisk } from "./AlgoFonction";
-export  function RiskGauge({ risk, temp, humidity }) {
+export  function RiskGauge({ risk, temp, humidity, interpretation}) {
   const circumference = 2 * Math.PI * 30; // r=30
  
   return (
@@ -45,6 +45,11 @@ export  function RiskGauge({ risk, temp, humidity }) {
       {/* <button className="mt-3 text-xs font-semibold underline underline-offset-2" style={{ color: risk.color }}>
         Voir les détails →
       </button> */}
+        {interpretation && (
+        <div className="border-t border-gray-200/60 pt-3 mt-1 text-sm text-gray-600 italic">
+          {interpretation}
+        </div>
+      )}
     </div>
   );
 }
