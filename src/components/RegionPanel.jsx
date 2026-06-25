@@ -4,7 +4,7 @@ import TemperatureChart from "./TemperatureChart";
 import LoadingState from "./LoadingState";
 import ErrorState from "./ErrorState";
 import {RiskGauge} from "./RiskGauge.jsx"
-import {calculateRisk} from "./AlgoFonction.jsx"
+import {calculateRisk} from "../utils/AlgoFonction.jsx"
 import { number } from "framer-motion";
 import { InterpretationIA } from "./IA";
 

@@ -5,6 +5,7 @@ function WeatherCard({ data }) {
   function StatPill({ icon, label, value }) {
     return (
       <div className="bg-gray-50 p-3 rounded-xl text-center">
+        
         <div className="text-xl">{icon}</div>
         <p className="text-xs text-gray-500">{label}</p>
         <p className="font-bold">{value}</p>
@@ -13,7 +14,9 @@ function WeatherCard({ data }) {
   }
  
   return (
+    
     <div className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
+      
       <h1 className="font-bold mb-4">Conditions actuelles</h1>
       <div className="flex items-center justify-between mb-5">
         <div>

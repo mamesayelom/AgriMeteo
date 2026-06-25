@@ -19,11 +19,10 @@ export function InterpretationIA({ temp, humidity, risk }) {
           headers: {
             "Content-Type": "application/json",
             "Authorization": `Bearer ${CLE_OPENROUTER}`,
-            "HTTP-Referer": "http://localhost:5173",
-            "X-Title": "Climat App",
+           
           },
           body: JSON.stringify({
-            model: "google/gemma-3-27b-it",
+            model: "meta-llama/llama-3-8b-instruct",
             messages: [{
               role: "user",
               content: `Température ${temp}°C, Humidité ${humidity}%, Risque ${risk.label} à ${risk.score}%. Donne une interprétation courte en 2 phrases.`

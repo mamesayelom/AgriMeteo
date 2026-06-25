@@ -6,10 +6,12 @@ import Sidebar from "../components/Sidebar"
 import RegionPanel from "../components/RegionPanel"
 import { useGeolocation } from "../hooks/useGeolocation";
 import { isLocationAsked, setLocationAsked } from "../utils/storage";
+import { useNationalStats } from "../hooks/UseNationalStats";
 
 function Dashboard(){
     const [selectedRegion, setSelectedRegion] = useState(null);
     const [showLocationPopup,setShowLocationPopup] = useState(false);
+     const { stats, charge } = useNationalStats();
     //Créer region
     //Créer getLocation
     //Retourner les deux
@@ -48,7 +50,7 @@ function Dashboard(){
 
     return(
         <>
-        <div className="flex">
+         <div className="flex">
             <Sidebar/>
             <div className="flex-1 bg-slate-50 w-full p-5 box-border">
                 <div className="flex justify-between items-center overflow-hidden box-border gap-2">
@@ -56,7 +58,7 @@ function Dashboard(){
                         <div className="card card-border bg-base-100 w-90">
                             <div className="card-body">
                                 <h2 className="card-title">Température nationale</h2>
-                                <p>A card component has a figur</p>
+                                <p>{charge ? "..." : stats ? `${stats.tempMoyenne}°C` : "--"}</p>
                             </div>
                         </div>
 
@@ -65,7 +67,7 @@ function Dashboard(){
                         <div className="card card-border bg-base-100 w-90">
                             <div className="card-body">
                                 <h2 className="card-title">Humidité moyenne</h2>
-                                <p>A card component has a figure</p>
+                                <p> {charge ? "..." : stats ? `${stats.humidMoyenne}%` : "--"}</p>
                             </div>
                         </div>
 
@@ -74,14 +76,21 @@ function Dashboard(){
                         <div className="card card-border bg-base-100 w-90">
                             <div className="card-body">
                                 <h2 className="card-title">Régions à risque</h2>
-                                <p>A card component has a figure</p>
+                                   <p className="text-green-500 font-bold">Aucune région à risque</p>
+                                        <ul className="text-sm font-semibold text-red-500">
+                                       {stats?.regionsARisque.map(r => (
+                                         <li key={r}>{r}</li>
+                                           ))}
+                                        </ul>
+                                {/* <p> {charge ? "..." : stats ? `${stats.regionsARisque} / 14` : "--"}</p> */}
                             </div>
                         </div>
 
                     </div>
-                </div>
+                </div> 
                 <Carte selectedRegion={selectedRegion} setSelectedRegion={setSelectedRegion}/>
                 {selectedRegion && (
+                    
                 <>
                 {/* BACKDROP (overlay sombre) */}
                 <motion.div
