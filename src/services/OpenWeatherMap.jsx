@@ -1,4 +1,4 @@
- const la_cle = import.meta.env.VITE_OPENWATHER_KEY_API
+ const la_cle = import.meta.env.VITE_OPENWEATHER_KEY
  import { useEffect, useState } from "react";
 
  export function ApiMeteo(region) {
