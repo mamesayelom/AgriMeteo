@@ -1,16 +1,58 @@
-# React + Vite
+# Agri Climate Monitor
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Plateforme web de surveillance climatique agricole au Sénégal permettant la visualisation météo par région, la géolocalisation utilisateur et l’évaluation du risque climatique.
 
-Currently, two official plugins are available:
+# Objectif
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Fournir aux acteurs agricoles un outil simple pour :
 
-## React Compiler
+Consulter la météo par région
+Être localisé automatiquement via GPS
+Visualiser un indice de risque climatique
+Améliorer la prise de décision agricole
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+# Fonctionnalités
 
-## Expanding the ESLint configuration
+- Carte interactive
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Carte du Sénégal avec 14 régions
+Sélection d’une région par clic
+Mise en évidence de la région active
+
+- Géolocalisation
+
+Détection automatique de la position utilisateur
+Conversion GPS → région
+Fallback sur Dakar si refus ou erreur
+
+- Données météo
+
+Intégration de l’API OpenWeatherMap
+Température, humidité et conditions météo
+Mise à jour dynamique selon la région sélectionnée
+
+- Analyse prédictive
+
+Simulation des données sur 7 jours
+Basée sur la température actuelle avec variation contrôlée
+Visualisation graphique (Chart.js)
+
+# Module d’intelligence artificielle (analyse du sol)
+
+Le projet intègre un modèle d’IA via OpenRouter permettant d’interpréter l’état du sol à partir des conditions climatiques.
+
+# Technologies
+
+React.js
+Tailwind CSS
+OpenWeatherMap API
+OpenRouter API
+Geolocation API
+Chart.js 
+
+# Installation
+
+git clone https://github.com/mamesayelom/AgriMeteo.git
+cd AgriMeteo
+npm install
+npm run dev
