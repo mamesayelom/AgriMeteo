@@ -6,10 +6,12 @@ import Sidebar from "../components/Sidebar"
 import RegionPanel from "../components/RegionPanel"
 import { useGeolocation } from "../hooks/useGeolocation";
 import { isLocationAsked, setLocationAsked } from "../utils/storage";
+import { useNationalStats } from "../hooks/UseNationalStats";
 
 function Dashboard(){
     const [selectedRegion, setSelectedRegion] = useState(null);
     const [showLocationPopup,setShowLocationPopup] = useState(false);
+     const { stats, charge } = useNationalStats();
     //Créer region
     //Créer getLocation
     //Retourner les deux
@@ -48,7 +50,7 @@ function Dashboard(){
 
     return(
         <>
-        <div className="flex">
+         <div className="flex m-h-screen">
             <Sidebar/>
             <div className="flex-1 bg-slate-50 w-full box-border">
                 <div className="p-5 bg-white mb-5">
@@ -57,26 +59,32 @@ function Dashboard(){
                 </div>
                 <div className="flex justify-center items-center overflow-hidden box-border gap-2">
                     <div className="flex shadow-sm items-center justify-center">
-                        <div className="card card-border bg-base-100 w-90">
+                        <div className="card card-border bg-base-100 w-80">
                             <div className="card-body">
-                                <h2 className="card-title" style={{color:"#2D5A16"}}>Température nationale</h2>
-                                <p>A card component has a figur</p>
+                                <h2 className="card-title">Température nationale</h2>
+                                <p>{charge ? "..." : stats ? `${stats.tempMoyenne}°C` : "--"}</p>
                             </div>
                         </div>
 
                     </div>
                     <div className="flex items-center justify-center">
-                        <div className="card card-border bg-base-100 w-90">
+                        <div className="card card-border bg-base-100 w-80">
                             <div className="card-body">
-                                <h2 className="card-title" style={{color:"#2D5A16"}}>Humidité moyenne</h2>
-                                <p>A card component has a figure</p>
+                                <h2 className="card-title">Humidité moyenne</h2>
+                                <p> {charge ? "..." : stats ? `${stats.humidMoyenne}%` : "--"}</p>
                             </div>
                         </div>
 
                     </div>
-                </div>
+                    
+                                   
+                                        
+                                {/* <p> {charge ? "..." : stats ? `${stats.regionsARisque} / 14` : "--"}</p> */}
+                    
+                </div> 
                 <Carte selectedRegion={selectedRegion} setSelectedRegion={setSelectedRegion}/>
                 {selectedRegion && (
+                    
                 <>
                 {/* BACKDROP (overlay sombre) */}
                 <motion.div
@@ -89,7 +97,7 @@ function Dashboard(){
 
                 {/* PANEL */}
                 <motion.div
-                className="fixed right-0 top-0 h-full w-200 bg-white z-50 shadow-xl"
+                className="fixed right-0 top-0 h-full w-100 bg-white z-50 shadow-xl"
                 initial={{x:"100%"}}
                 animate={{x:0}}
                 exit={{x:"100%"}}

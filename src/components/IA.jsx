@@ -22,6 +22,7 @@ export function InterpretationIA({ temp, humidity, risk }) {
           },
           body: JSON.stringify({
             model: "meta-llama/llama-3-8b-instruct",
+            model: "meta-llama/llama-3-8b-instruct",
             messages: [{
               role: "user",
               content: `Température ${temp}°C, Humidité ${humidity}%, Risque ${risk.label} à ${risk.score}%. Donne une interprétation courte en 2 phrases.`
