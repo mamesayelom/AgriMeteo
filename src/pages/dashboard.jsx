@@ -72,21 +72,11 @@ function Dashboard(){
                         </div>
 
                     </div>
-                    <div className="flex items-center justify-center">
-                        <div className="card card-border bg-base-100 w-90">
-                            <div className="card-body">
-                                <h2 className="card-title">Régions à risque</h2>
-                                   <p className="text-green-500 font-bold">Aucune région à risque</p>
-                                        <ul className="text-sm font-semibold text-red-500">
-                                       {stats?.regionsARisque.map(r => (
-                                         <li key={r}>{r}</li>
-                                           ))}
-                                        </ul>
+                    
+                                   
+                                        
                                 {/* <p> {charge ? "..." : stats ? `${stats.regionsARisque} / 14` : "--"}</p> */}
-                            </div>
-                        </div>
-
-                    </div>
+                    
                 </div> 
                 <Carte selectedRegion={selectedRegion} setSelectedRegion={setSelectedRegion}/>
                 {selectedRegion && (
