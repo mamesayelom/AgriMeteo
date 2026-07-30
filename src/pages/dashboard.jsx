@@ -48,25 +48,29 @@ function Dashboard(){
 
     return(
         <>
-         <div className="flex">
-            <Sidebar/>
-            <div className="flex-1 bg-slate-50 w-full box-border">
-                <div className="p-5 bg-white mb-5 flex justify-between items-center">
+        
+         
+            <div className="bg-slate-50 w-full box-border">
+               {/*<div className="p-5 bg-white mb-5 flex justify-between items-center">
+                    
                     <div className="lg:w-full w-65">
-                        <h1 className="font-bold text-sm lg:text-2xl " style={{color:"#2D5A16"}}>Carte Climatique Interactive</h1>
-                        <p className="text-slate-300 text-xs lg:text-sm" style={{color:"#2D5A16"}}>Visualisez les conditions météorologiques en temps réel par région</p>
+                        <div className="flex gap-2 items-center ">
+                            <div style={{color:"#2D5A16"}} className="flex items-center justify-center w-10 h-10 rounded-xl bg-amber-50 font-bold text-green-500 text-sm ">AC</div>
+                            <h1 style={{color:"#16A34A"}} className="  font-bold">AGRI <span style={{color:"#16A34A"}}>CLIMATE</span></h1>
+                        </div>
+                        
                     </div>
 
-                    {/* Burger visible seulement mobile */}
+                    
                     <button className="lg:hidden p-2 rounded-md shadow">
                         <Menu  color="#2D5A16"/>
                     </button>
-                </div>
-                <div className="flex flex-col lg:flex-row  justify-center items-center overflow-hidden box-border gap-2">
+                </div>*/}
+                <div className="p-5 flex flex-col lg:flex-row items-center overflow-hidden box-border gap-2">
                     <div className="flex shadow-sm items-center justify-center">
                         <div className="card card-border bg-base-100 w-80">
                             <div className="card-body">
-                                <h2 className="card-title">Température nationale</h2>
+                                <h2 style={{color:"#16A34A"}} className="card-title">Température nationale</h2>
                                 <p>{charge ? "..." : stats ? `${stats.tempMoyenne}°C` : "--"}</p>
                             </div>
                         </div>
@@ -75,7 +79,7 @@ function Dashboard(){
                     <div className="flex items-center justify-center">
                         <div className="card card-border bg-base-100 w-80">
                             <div className="card-body">
-                                <h2 className="card-title">Humidité moyenne</h2>
+                                <h2 style={{color:"#16A34A"}} className="card-title">Humidité moyenne</h2>
                                 <p> {charge ? "..." : stats ? `${stats.humidMoyenne}%` : "--"}</p>
                             </div>
                         </div>
@@ -87,12 +91,12 @@ function Dashboard(){
                 <Carte selectedRegion={selectedRegion} setSelectedRegion={setSelectedRegion}/>
                 
                 <AnimatePresence>
-                {selectedRegion && (
+                { (
                     
                 <div key="panel-wrapper">
                 {/* BACKDROP (overlay sombre) */}
                 <motion.div
-                className="fixed inset-0 bg-black/40 z-40"
+                //className="fixed inset-0 bg-black/40 z-40"
                 initial={{opacity:0}}
                 animate={{opacity:1}}
                 exit={{opacity:0}}
@@ -101,7 +105,7 @@ function Dashboard(){
 
                 {/* PANEL */}
                 <motion.div
-                className="fixed right-0 top-0 h-full w-100 lg:w-100 bg-white z-50 shadow-xl"
+                className="fixed right-0 top-0 h-full w-100 lg:w-150 bg-white z-50 shadow-xl "
                 initial={{x:"100%"}}
                 animate={{x:0}}
                 exit={{x:"100%"}}
@@ -123,9 +127,6 @@ function Dashboard(){
 
                 )}
             </div>
-            
-
-        </div>
         
         </>
     )
