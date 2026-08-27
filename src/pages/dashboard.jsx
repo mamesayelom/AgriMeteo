@@ -50,37 +50,23 @@ function Dashboard(){
         <>
         
          
-            <div className="bg-slate-50 w-full box-border">
-               {/*<div className="p-5 bg-white mb-5 flex justify-between items-center">
-                    
-                    <div className="lg:w-full w-65">
-                        <div className="flex gap-2 items-center ">
-                            <div style={{color:"#2D5A16"}} className="flex items-center justify-center w-10 h-10 rounded-xl bg-amber-50 font-bold text-green-500 text-sm ">AC</div>
-                            <h1 style={{color:"#16A34A"}} className="  font-bold">AGRI <span style={{color:"#16A34A"}}>CLIMATE</span></h1>
-                        </div>
-                        
-                    </div>
-
-                    
-                    <button className="lg:hidden p-2 rounded-md shadow">
-                        <Menu  color="#2D5A16"/>
-                    </button>
-                </div>*/}
-                <div className="p-5 flex flex-col lg:flex-row items-center overflow-hidden box-border gap-2">
+            <div style={{backgroundColor: "#10201b"}} className=" w-full box-border">
+               
+                <div className="py-5 pl-7 flex flex-col lg:flex-row items-center overflow-hidden box-border gap-2">
                     <div className="flex shadow-sm items-center justify-center">
-                        <div className="card card-border bg-base-100 w-80">
-                            <div className="card-body">
-                                <h2 style={{color:"#16A34A"}} className="card-title">Température nationale</h2>
-                                <p>{charge ? "..." : stats ? `${stats.tempMoyenne}°C` : "--"}</p>
+                        <div style={{width: 316}} className="card bg-base-100">
+                            <div className="bg-panel border card-body">
+                                <h2 className="text-white text-[11px] tracking-[0.08em] uppercase text-[var(--sand-dim)] font-['IBM_Plex_Mono'] font-mono">Température nationale</h2>
+                                <p style={{color: "#e38a54", fontSize: 30, fontWeight:"600"}}>{charge ? "..." : stats ? `${stats.tempMoyenne}°C` : "--"}</p>
                             </div>
                         </div>
 
                     </div>
                     <div className="flex items-center justify-center">
-                        <div className="card card-border bg-base-100 w-80">
-                            <div className="card-body">
-                                <h2 style={{color:"#16A34A"}} className="card-title">Humidité moyenne</h2>
-                                <p> {charge ? "..." : stats ? `${stats.humidMoyenne}%` : "--"}</p>
+                        <div style={{width: 316}} className="card bg-base-100">
+                            <div className="bg-panel border card-body">
+                                <h2 className=" text-white text-[11px] tracking-[0.08em] uppercase text-[var(--sand-dim)] font-['IBM_Plex_Mono'] font-mono">Humidité moyenne</h2>
+                                <p style={{color: "#6fa3a0", fontSize: 30, fontWeight:"600"}}> {charge ? "..." : stats ? `${stats.humidMoyenne}%` : "--"}</p>
                             </div>
                         </div>
 
@@ -88,6 +74,7 @@ function Dashboard(){
                      {/* <p> {charge ? "..." : stats ? `${stats.regionsARisque} / 14` : "--"}</p> */}
                     
                 </div> 
+                
                 <Carte selectedRegion={selectedRegion} setSelectedRegion={setSelectedRegion}/>
                 
                 <AnimatePresence>
@@ -105,7 +92,7 @@ function Dashboard(){
 
                 {/* PANEL */}
                 <motion.div
-                className="fixed right-0 top-0 h-full w-100 lg:w-150 bg-white z-50 shadow-xl "
+                className="fixed right-0 top-0 h-full w-100 lg:w-150 bg-night z-50 shadow-xl"
                 initial={{x:"100%"}}
                 animate={{x:0}}
                 exit={{x:"100%"}}
@@ -116,6 +103,7 @@ function Dashboard(){
                 </div>
                 )}
                 </AnimatePresence>
+                
 
                 {/* BACKDROP (overlay sombre) */}
                 {showLocationPopup && (

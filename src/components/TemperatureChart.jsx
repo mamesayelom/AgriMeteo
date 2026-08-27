@@ -33,8 +33,8 @@ function TemperatureChart({ currentTemp }) {
       {
         label: "Température (°C)",
         data: history.map(h => h.temp),
-        borderColor: "#4F46E5",
-        backgroundColor: "rgba(79, 70, 229, 0.2)",
+        borderColor: "rgb(227, 178, 61)",
+        backgroundColor: "rgba(227, 178, 61, 0.1)",
         fill: true,
         tension: 0.4,
         pointRadius: 5,
@@ -61,8 +61,8 @@ function TemperatureChart({ currentTemp }) {
   };
 
   return (
-    <div className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 my-5">
-        <h1 className="font-bold mb-4">Évolution de la Température</h1>
+    <div className="bg-panel rounded-2xl p-5 shadow-sm my-5">
+        <h1 className="text-white font-bold mb-4">Évolution de la Température</h1>
     <div>
       <Line data={data} options={options} />
     </div>

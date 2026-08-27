@@ -4,27 +4,25 @@ function WeatherCard({ data }) {
 
   function StatPill({ icon, label, value }) {
     return (
-      <div className="bg-gray-50 p-3 rounded-xl text-center">
+      <div style={{backgroundColor: "#223a2f"}} className=" p-3 rounded-xl text-center">
         
         <div className="text-xl">{icon}</div>
-        <p className="text-xs text-gray-500">{label}</p>
-        <p className="font-bold text-sm">{value}</p>
+        <p className="text-xs text-white">{label}</p>
+        <p className="font-bold text-sm text-white">{value}</p>
       </div>
     );
   }
  
   return (
     
-    <div className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
-      
-      <h1 className="font-bold mb-4">Conditions actuelles</h1>
-      <div className="flex items-center justify-between mb-5">
+    <div className="bg-panel border rounded-2xl p-5 shadow-sm">
+      <div style={{backgroundColor: "#223a2f"}} className="rounded-xl p-4 flex items-center justify-between mb-5">
         <div>
           <div className="flex items-end gap-1">
-            <span className="text-6xl font-bold text-gray-900 leading-none">{data.temp.toFixed(1)}</span>
-            <span className="text-6xl font-bold text-gray-900 leading-none">°C</span>
+            <span className="text-6xl font-bold text-white leading-none">{data.temp.toFixed(1)}</span>
+            <span className="text-6xl font-bold text-white leading-none">°C</span>
           </div>
-          <p className="text-sm text-gray-500 mt-1 capitalize">{data.description}</p>
+          <p className="text-sm text-white mt-1 capitalize">{data.description}</p>
         </div>
         <img src={iconUrl} alt="weather icon" className="w-16 h-16" />
       </div>
