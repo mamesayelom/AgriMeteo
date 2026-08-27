@@ -2,10 +2,7 @@ export  function RiskGauge({ risk, temp, humidity, interpretation}) {
   const circumference = 2 * Math.PI * 30; // r=30
  
   return (
-    <div className={`rounded-2xl p-5 mt-5 shadow-sm border ${risk.bg} ${risk.border}`}>
-      <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">
-        Indice de risque climatique
-      </p>
+    <div className={`bg-panel rounded-2xl p-5 mt-5 shadow-sm `}>
       <div className="flex items-center gap-4 mb-4">
         <svg width="72" height="72" viewBox="0 0 72 72" className="flex-shrink-0">
           <circle cx="36" cy="36" r="30" fill="none" stroke="#e5e7eb" strokeWidth="6" />

@@ -37,7 +37,7 @@ function RegionPanel({region, closePanel}) {
     : null;
 
   return (
-    <div className="relative p-4 h-full overflow-y-auto ">
+    <div className="relative py-4 pr-4 h-full overflow-y-auto ">
       <div
         className="relative rounded-2xl overflow-hidden mb-5 h-32 flex items-end p-5"
         style={{
@@ -46,9 +46,8 @@ function RegionPanel({region, closePanel}) {
           backgroundPosition: "center",
         }}
       >
-      {/*<span className="absolute top-5 right-5 cursor-pointer z-50" onClick={closePanel}><X color="white" /></span>*/}
-      <div className="absolute inset-0 bg-black/40" />
-      <h1 className="relative z-10 text-2xl font-bold text-white">{region}</h1>
+        <div className="absolute inset-0 bg-gradient-to-t from-night via-night/40 to-transparent" />
+        <h1 className="relative z-10 text-2xl font-display font-semibold text-sand">{region}</h1>
       </div>
 
      {donneesmeteo && (

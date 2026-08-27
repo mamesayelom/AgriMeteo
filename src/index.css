@@ -1,2 +1,20 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+@theme {
+  --color-night: #10201B;
+  --color-night2: #16281F;
+  --color-panel: #1B2F26;
+  --color-panel2: #223A2F;
+  --color-sand: #EFE6D3;
+  --color-clay: #C1662F;
+  --color-claysoft: #E38A54;
+  --color-millet: #E3B23D;
+  --color-sage: #8CB08A;
+  --color-sagedeep: #4C7A4F;
+  --color-sky: #6FA3A0;
+
+  --font-display: "Fraunces", serif;
+  --font-mono: "IBM Plex Mono", monospace;
+  --font-sans: "IBM Plex Sans", sans-serif;
+}
