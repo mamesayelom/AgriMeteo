@@ -21,8 +21,7 @@ export function InterpretationIA({ temp, humidity, risk }) {
             "Authorization": `Bearer ${CLE_OPENROUTER}`,
           },
           body: JSON.stringify({
-            model: "meta-llama/llama-3-8b-instruct",
-            model: "meta-llama/llama-3-8b-instruct",
+            model: "openai/gpt-4o-mini",
             messages: [{
               role: "user",
               content: `Température ${temp}°C, Humidité ${humidity}%, Risque ${risk.label} à ${risk.score}%. Donne une interprétation courte en 2 phrases.`
@@ -31,6 +30,7 @@ export function InterpretationIA({ temp, humidity, risk }) {
         });
 
         const res = await reponse.json();
+        console.log("Réponse OpenRouter :", res);
         const data = res.choices[0].message.content;
         setInterpretation(data);
         setChargement(false);
